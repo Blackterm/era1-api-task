@@ -1,0 +1,27 @@
+name: Send Email on Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.example.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "New Commit to Main Branch"
+          body: "A new commit has been pushed to the main branch. Check it out!"
+          to: "ecrin@osicrew.com"
+          from: "Blackterm GitHub Actions"
+
+
