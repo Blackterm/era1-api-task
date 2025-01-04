@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: "New Commit to Main Branch"
-          body: "A new commit has been pushed to the main branch. Check it out!"
+          body: "A new commit has been pushed to the main branch. [View the repository](https://github.com/Blackterm/era1-api-task)"
           to: "ecrin@osicrew.com"
           from: "Blackterm GitHub Actions"
 
