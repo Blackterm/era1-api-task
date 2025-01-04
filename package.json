@@ -1,0 +1,37 @@
+{
+  "name": "era1-api",
+  "version": "1.0.0",
+  "description": "era1-api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node index.js",
+    "test": "NODE_ENV=test jest",
+    "coverage": "jest --coverage"
+  },
+  "author": "Murat Can ERAVŞAR",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.20.0",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.11.2"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6.12"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/coverage/**"
+    ],
+    "testURL": "http://localhost:8000/"
+  }
+}

@@ -1,0 +1,33 @@
+version: "3"
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: era1-db
+    ports:
+      - "3306:3306"
+    networks:
+      - era1-net
+    expose:
+      - 3306
+    restart: unless-stopped
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    networks:
+      - era1-net
+    depends_on:
+      - db
+    expose:
+      - 4000
+    environment:
+      DB_HOST: db
+      DB_DATABASE: era1-db
+      DB_USER: root
+      DB_PASSWORD: my-secret-pw
+      DB_PORT: 3306
+networks:
+  era1-net:
+    driver: bridge
